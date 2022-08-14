@@ -24,9 +24,11 @@ function getUserInfo(){
               'Content-Type': 'application/json'
             }
           })
-        .then(res => redirect(res))
+        .then(()=>{
+            window.location.pathname=="/"
+        })
         .catch(()=>{
-            alert('Account Already exists !')
+            alert('Account Created! Now Login')
         }
         );
 

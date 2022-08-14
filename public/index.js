@@ -12,11 +12,11 @@ axios
 function indexbooks(res){
     let bookcontainer=document.getElementById("bookcontainer").children;
     let books=res.data.works;
-    console.log(books);
+    // console.log(books);
     for (var i=0; i<books.length; i++) {
         let cover=res.data.works[i].cover_id;
         let key=books[i].key.split("/")[2];
-        console.log(key);
+        // console.log(key);
         if (cover!=null) {
 
             bookcontainer[i].innerHTML=`<a href="./bookdesc/${books[i].title}/${books[i].cover_id}/${books[i].authors[0].name}/${books[i].first_publish_year}/${books[i].edition_count}/${key}"><img src="https://covers.openlibrary.org/b/ID/${cover}-M.jpg" alt="image not found"><p>${books[i].title}</p></a>`;
@@ -55,7 +55,7 @@ function displaysearchbook(res){
 }
 // searchingbook
 function getsearchbooks(){
-    console.log(window.location.href);
+    // console.log(window.location.href);
     var searchinput=document.getElementById("searchinput").value;
     axios
     .get(`http://openlibrary.org/search.json?title=${searchinput}`)

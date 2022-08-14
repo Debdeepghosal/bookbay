@@ -5,8 +5,7 @@ const bodyparser = require('body-parser')
  const path = require('path');
  const cookieParser=require("cookie-parser");
  const connectDB = require('./db/connect');
- const session=require('express-session');
- const flash=require('connect-flash');
+ const port=process.env.PORT || 8000;
 //template engine setup
 app.set("view engine","hbs");
 
@@ -22,19 +21,7 @@ app.use(
     express.urlencoded({ extended: true })
 );
 app.use(bodyparser.urlencoded({extended:false})) 
-app.use(bodyparser.json()) 
-app.use(session({
-    secret : 'bookbay',
-    cookie : {maxAge : null},
-    saveUninitialized : false,
-    resave : false,
-}));
-app.use((req,res,next)=>{
-    res.locals.message = req.session.message
-    delete req.session.message
-    next()
-})
-
+app.use(bodyparser.json());
 //routes
 app.use("/",router);
 app.use("/api/v1/account",authrouter);
@@ -46,8 +33,8 @@ app.use("/api/v1/account",authrouter);
  const start=async()=>{
      try{
         await connectDB(process.env.MONGO_URI);
-         app.listen(3000,()=>{
-             console.log("server running at port 3000")
+         app.listen(port,()=>{
+             console.log("server running at port",port)
          })
      }
      catch(err){

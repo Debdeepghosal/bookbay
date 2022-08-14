@@ -9,9 +9,9 @@ const cookieParser=require("cookie-parser");
 const createaccount=async (req,res)=>{
   try{
   const user= await User.create(req.body);
-  const token = user.createJWT()
+  // const token = user.createJWT()
   // res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token })
-  res.redirect('/');
+   return res.redirect('/');
   }
   catch(err){
     res.status(400).send(new Error('Account already Exists !'));
