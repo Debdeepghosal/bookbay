@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&family=Redressed&family=Sansita+Swashed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Redressed&family=Sansita+Swashed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Koulen&family=Redressed&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#body{
+    display: grid;
+    grid-template-areas:'navbar'
+                        'heading' 
+                        'searchbar' ;
+}
+#navbar{
+    grid-area: navbar;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    /* border: 5px solid white; */
+}
+#navbar::before{
+    content: "";
+    position: absolute;
+    background:url("./images/background.jpg") no-repeat center center/cover;
+    top:0px;
+    left: 0rem;
+    height: 68%;
+    width: 100%;
+    z-index: -1;
+}
+#navbar img{
+    position: absolute;
+    top:0.3rem;
+    left: 1rem;
+    height: 5rem;
+    width: 5rem;
+    z-index: 2;
+    border-radius: 3rem;
+} 
+#navbar ul li a {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+    color:#4823a4;
+    
+}
+#navbar ul li :hover {
+    /* transition: all 0.5s ease-in-out; */
+    transform: scale(1.1);
+    color: rgb(100, 93, 177);
+    
+}
+.navitem{
+    display: inline;
+    padding: 3rem;
+} 
+#heading{
+    grid-area: heading;
+}
+#heading p{
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 10rem;
+    text-align: center;
+    padding:1rem;
+    /* border:5px solid red; */
+
+}
+#searchbar{
+    grid-area: searchbar;
+    display: flex;
+    margin: auto;
+    border-radius: 1rem;
+    /* width: 69%; */
+    background-color: white;
+    opacity: 0.6;
+    height: 5rem;
+
+}
+#searchbar input {
+    font-size: 2rem;
+    padding: 2.2rem;
+    border-radius: 3rem;
+    width: 56rem;
+    height: 4rem;
+    text-align: center;
+    border: transparent;
+    margin: 0.37rem;
+}
+
+#searchbar button{
+    border-radius: 10px;
+    border: transparent;
+    margin: auto;
+    cursor: pointer;
+}
+#searchbuttona{
+    padding-top: 1rem;
+}
+#searchbar button img {
+    height: 3rem;
+    display: inherit;
+    width: 3rem;
+    background-color: rgb(255, 255, 255);
+    margin: 1rem;
+}
+#loginform div{
+    display: flex;
+    justify-content: center;
+}
+#loginheading{
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 10rem;
+    text-align: center;
+    padding:1rem;
+}
+#loginform input {
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    margin: 0.4rem;
+    border-radius: 3rem;
+    text-align: center;
+    border: transparent;
+}
+#bookcontainer{
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    grid-gap: 1rem;
+    margin: auto;
+    padding-top: 5rem;
+    font-family: 'Rubik', sans-serif;
+
+}
+.book{
+    height: auto;
+    width: auto;
+    padding: 1rem;
+    cursor: pointer;
+  
+}
+.book img {
+    height: 17rem;
+    width: 12rem;
+}
+#searchedbookcontainer{
+    display: none;
+    grid-template-columns: repeat(1,auto);
+    grid-gap: 1rem;
+    margin: auto;
+    padding-top: 5rem;
+    color: blue;
+}
+#searchedbookcontainer div{
+
+    font-size: 2rem;
+    border-radius: 2rem;
+    padding-left: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-family: 'Bebas Neue', cursive;
+
+}
+#bookdesc{
+    display:flex;
+    flex-direction: row;
+    margin: 3rem;
+    background-color: #e0daff;
+    justify-content: center;
+    border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif;
+}
+#bookdesc div{
+    padding-left: 2rem;
+    padding-top: 3rem;
+    padding-right: 4rem;
+    padding-bottom: 2rem;
+}
+#bookdesc img{
+    height:27rem;
+    margin: 1rem;
+}
+.buynowbutton{
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    /* background-color: #d8c8fc; */
+    border-radius: 1rem;
+    margin-top: 3rem;
+
+}
+#buynowbutton:hover{
+    background-color: rgb(186, 180, 196);
+
+}
+#authorname{
+    color: #2e2f97;
+}
+#bookdescName{
+    font-size: 3rem;
+    color: #28292c;
+}
+#cartbooks{
+    /* display: none; */
+    grid-template-columns: repeat(1,auto);
+    grid-gap: 1rem;
+    margin: auto;
+    padding-top: 2rem;
+    color: blue;
+}
+.cartbook{
+    
+
+}
+.cartbook a{
+    
+}
+.cartbook p{
+    display: inline;
+    font-size: 2rem;
+    position: relative;
+    /* top: -7rem;
+    left: 7rem; */
+}
+#addToCart{
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.3rem 2rem;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    background-color: #bc8ad3;
+    border-color: transparent;
+}
+#addToCart:hover{
+    background-color: rgb(186, 180, 196);
+
+}
+
+#cartheading{
+    font-size: 5rem;
+    text-align: center;
+    color: white;
+    
+    
+}
+
+#buynowbuttonCart{
+    font-size: 1.5rem;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    color: white;
+    margin: 0rem 1rem;
+    background: #cc99e3;
+    border-color: white;
+}
+#buynowbuttonCart:hover{
+    background-color: rgb(69, 61, 82);
+}
+#removebookbutton{
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0rem 1rem;
+    cursor: pointer;
+    background: #cc99e3;
+    border-color: white;
+    color: white;
+}
+#removebookbutton:hover{
+    background-color: rgb(94, 84, 112);
+}
+#paymentheading{
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(51 38 203);
+    padding: 4rem;
+}
+#paymentform{
+    
+    padding: 3rem;
+    text-align: center;
+}
+@media (max-width :1170px){
+    .navitem{
+    /* display: block; */
+    padding: 0.8rem;
+    background: #e7d5f3;
+    margin: 0.7rem; 
+    border-radius: 3rem;
+    text-align:  center;
+        
+    
+    }
+    #bookcontainer{
+    grid-template-columns: repeat(3,auto);
+
+    }
+    #navbar::before{
+     position:fixed;
+     height: 100%;
+    
+    }
+    #searchbar input{
+        width: auto;
+    }
+    .shape {
+        display: none;
+    }
+    #loginform{
+        margin: 4rem 0rem;
+    }
+    #registerform{
+        margin: 6rem 0rem;
+    }
+    .background{
+       display: none;
+    }
+}
+@media (max-width :760px){
+#bookdesc{
+    display: block;
+}
+.navitem{
+    display: block;
+    padding: 0.3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+#bookdesc img {
+    width: 77%;
+    height: 40%;
+    display: block;
+    margin: auto;
+}
+#searchedbookcontainer div {
+    margin: 0rem 8rem;
+}
+form{
+    scale: 1.5;
+    margin: 5rem;
+}
+}
+#price{
+    font-size: 2rem;
+}
+

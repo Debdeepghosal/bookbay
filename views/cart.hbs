@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bookstore.css">
+    <title>Cart</title>
+</head>
+<body>
+    <nav id="navbar">
+        <a href="/"><img src="/images/logo.png" alt="Not found image"></a>
+       <ul>      
+           <li class="navitem"><a href="/">Home</a></li>
+           <li class="navitem"><a href="/cart">Your Cart</a></li>
+           <li class="navitem"><a href="/login">{{username}}</a></li> 
+           <!-- change it to accout after login -->
+           <li class="navitem"><a href="/about">About Us</a></li>
+       </ul>
+    </nav>
+    <h1 id="cartheading">Cart</h1>
+    <div id="cartbooks">
+        <div class="cartbook"><H1 id="cartloadingheading" style="text-align: center;font-size: 3rem;color: #06061c;padding:2rem;color:white;">Loading...</H1></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div> 
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div>
+        <div class="cartbook"></div> 
+ </div>
+
+ <a href="/cart/books/buy"><button id="buynowbuttonCart">Buy Now</button></a>
+ <button id="removebookbutton">Remove Books</button>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="index.js"></script>
+<script>
+    //Display cart books
+function getCartBooks(){
+    // var searchinput=document.getElementById("searchinput").value;
+    axios
+    .get(`/cart/books`)
+    .then(res=>displayCartBooks(res))
+    .catch(err => console.error(err));
+}
+function domManu(key,res,cartbooks,i){
+ axios
+            .get(`https://openlibrary.org/works/${key}.json`)
+            .then(res=>{
+                let cover=res.data.covers[0];
+                let title=res.data.title;
+                cartbooks[i].innerHTML=`<a><img src="https://covers.openlibrary.org/b/ID/${cover}-M.jpg" alt="image not found"><p style="display:block;display: block;color: #072f36;font-family: sans-serif;" >${title}</p></a>`;
+                cartbooks[i].style="background-color: #dfd3e8;padding: 2rem;border-radius: 2rem;margin: 2rem;";
+            })
+            .catch(err => console.error(err));
+}
+
+async function displayCartBooks(res){
+    console.log(res);
+   let len=res.data.length;
+   if(len!=0){
+   let cartbooks=document.getElementById("cartbooks").children;
+    for (var i=0; i<len; i++) {
+      let key=res.data[i].key;
+      await domManu(key,res,cartbooks,i);
+
+     }
+   }
+   else{
+        document.getElementById("cartloadingheading").innerHTML="Empty Cart";
+   }
+
+}
+getCartBooks();
+
+let removebookbtn=document.getElementById("removebookbutton");
+removebookbtn.addEventListener('click',removebook);
+
+
+</script>
+</body>
+</html>

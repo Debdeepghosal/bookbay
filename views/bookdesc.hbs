@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Description</title>
+  <link rel="stylesheet" href="/bookstore.css">
+  
+</head>
+<body>
+  <nav id="navbar">
+    <a href="/"><img src="/images/logo.png" alt="Not found image"></a>
+   <ul>      
+       <li class="navitem"><a href="/">Home</a></li>
+       <li class="navitem"><a href="/cart">Your Cart</a></li>
+       <li class="navitem"><a href="/login">{{username}}</a></li> 
+       <!-- change it to accout after login -->
+       <li class="navitem"><a href="/about">About Us</a></li>
+   </ul>
+</nav>
+
+<div id="bookdesc">
+  <img src="https://covers.openlibrary.org/b/ID/{{coverlink}}-M.jpg" alt="/images/cover.jpg">
+  <div>
+   <h1 id="bookdescName">Book Name : {{BookName}}</h1>
+   <h3 id="authorname">Author Name : {{authorName}}</h3>
+   <h3 id="dateofp">Date of Publication : {{dateofp}}</h3>
+   <h3 id="pages">No. of pages : {{pages}}</h3>
+   <h3 id="price">Price : &#8377 {{price}}</h3>
+   <button id="addToCart">Add to cart</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="/index.js"></script>
+<script>
+
+function addToCartFunc() {
+  const json = JSON.stringify({ "key": `{{key}}`,"price":`{{price}}`} );
+        console.log(json);
+     axios
+         .post("/bookdesc/:title/:cover/:author/:date/:pages/:key", json,{
+             headers: {
+               'Content-Type': 'application/json'
+             }
+           })
+         .catch(err => console.error(err));
+    }
+//cart function
+let addToCartBtn=document.getElementById("addToCart");
+addToCartBtn.addEventListener('click',addToCartFunc);
+
+</script>
+</body>
+</html>
+
+

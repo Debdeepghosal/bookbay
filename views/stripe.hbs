@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html> 
+<head><link rel="stylesheet" href="/bookstore.css"></head>
+<title>checkout</title> 
+<body> 
+    <div id="body">
+    <nav id="navbar">
+        <a href="/"><img src="/images/logo.png" alt="Not found image"></a>
+         
+        <ul>
+            
+            <li class="navitem"><a href="/">Home</a></li>
+            <li class="navitem"><a href="/cart">Your Cart</a></li>
+            <li class="navitem"><a href="/login">{{username}}</a></li> 
+            <!-- change it to account after login -->
+            <li class="navitem"><a href="/about">About Us</a></li>
+        </ul>
+    </nav>
+    <h3 id="paymentheading">Enter Card Details</h3> 
+    <p style="font-size: 2rem ;text-align:center;">Use 4242 4242 4242 4242 as Card Number</p>
+    <form id="paymentform" action="" method="POST"> 
+        
+    <script
+        src="//checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key="{{key}}" 
+        data-amount="{{price}}" 
+        data-currency="inr" 
+        data-name="BOOKBAY" 
+        data-description="Books" 
+        data-locale="auto" > 
+        </script> 
+    </form>
+    
+</body> 
+</html>

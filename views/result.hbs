@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="bookstore.css">
+    
+</head>
+<body>
+    <div id="body">
+    <nav id="navbar">
+        <a href="./"><img src="./images/logo.png" alt="Not found image"></a>
+         
+        <ul>
+            
+            <li class="navitem"><a href="./">Home</a></li>
+            <li class="navitem"><a href="/cart">Your Cart</a></li>
+            <li class="navitem"><a href="./login">{{username}}</a></li> 
+            <!-- change it to accout after login -->
+            <li class="navitem"><a href="/about">About Us</a></li>
+        </ul>
+    </nav>
+    <div id="heading">
+        <p>BOOKBAY</p>
+    </div>
+    <div id="searchbar">
+        <form action="">
+        <input type="text" id="searchinput" placeholder="Search from millions of books">
+    </form>
+    <button type="submit" id="searchbutton"><img src="./images/search-button-png-23502.png" alt=""></button>
+    </div>
+    <div id="searchedbookcontainer">
+        
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book">Loading...</div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+        <div class="book"></div>
+    </div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="index.js"></script>
+
+</html>   
