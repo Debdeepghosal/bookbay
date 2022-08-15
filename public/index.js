@@ -3,7 +3,7 @@
 
 function getindexbooks() {
 axios
-.get('http://openlibrary.org/subjects/mystery.json?limit=30')
+.get('https://openlibrary.org/subjects/mystery.json?limit=30')
 .then(res => indexbooks(res))
 .catch(err => console.error(err));
 }
@@ -58,7 +58,7 @@ function getsearchbooks(){
     // console.log(window.location.href);
     var searchinput=document.getElementById("searchinput").value;
     axios
-    .get(`http://openlibrary.org/search.json?title=${searchinput}`)
+    .get(`https://openlibrary.org/search.json?title=${searchinput}`)
     .then(res => displaysearchbook(res))
     .catch(err => console.error(err));
     console.log(searchinput);
