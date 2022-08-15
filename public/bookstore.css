@@ -337,10 +337,10 @@
 #searchedbookcontainer div {
     margin: 0rem 8rem;
 }
-form{
+/* form{
     scale: 1.5;
     margin: 5rem;
-}
+} */
 }
 #price{
     font-size: 2rem;
