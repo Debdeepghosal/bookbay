@@ -1,13 +1,13 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
+# Install dependencies
+npm install
 
+# Build the app
+npm run build
 
-echo 'The following "npm" command runs your Node.js application'
+# Install pm2 process manager
+npm install -g pm2
 
-set -x
-npm start &
-sleep 1
-echo $! > .pidfile
-set +x
-
-echo 'Visit http://ServerIp:8000 to see the bookbay webapp'
+# Start the app with pm2
+pm2 start app.js
